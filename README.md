@@ -23,7 +23,7 @@ The post [Reversing Retefe](https://www.govcert.admin.ch/blog/35/reversing-retef
 XOR key which indicates that the threat actor has changed its code base after the release of that post.
 This post is made with the intention to shed some light on the current way the threat Retefe stores its payload.
 
-Looking at the mapped binary image by IDA shows a large amount of unexplored data that is in the `.data` segment.
+Looking at the mapped binary image with IDA shows a large amount of unexplored data that is in the `.data` segment.
 
 <div style="text-align:center"><img src="readme_images/code-explored.png"></div>
 
@@ -36,7 +36,7 @@ The copy instruction is part of a function that passes the address of this copie
 
 <div style="text-align:center"><img src="readme_images/decoder-setup.png" width="75%" height="75%"></div>
 
-The `decoder` function passes the `buffer length` and another `int` to a function that takes `buffer length` to the power of that `int.
+The `decoder` function passes the `buffer length` and another `int` to a function that takes `buffer length` to the power of that `int`.
 Then a a shift and subtraction is performed. The result is the XOR key that is used to decode the buffer.
 
 <div style="text-align:center"><img src="readme_images/xor-key.png" width="75%" height="75%"></div>
