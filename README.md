@@ -6,7 +6,7 @@ comments: true
 categories:
 ---
 
-# Retefe static unpacker
+# Retefe unpacker
 
 Cross post of [http://tomasuh.github.io/2018/12/28/retefe-unpack.html](http://tomasuh.github.io/2018/12/28/retefe-unpack.html).
 
