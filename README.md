@@ -21,7 +21,7 @@ Resources about the threat:
 Historically there seems to be some variance of ways the malware has stored it's Javascript payload. Some sources mentions self extracting ZIP files and other XORed data. The current version makes use of a 4 byte XOR key which is generated based on the scripts length and a few mathematical operations performed on it.
 The post [Reversing Retefe](https://www.govcert.admin.ch/blog/35/reversing-retefe) from about two months back (2018-11-08) shows use of a one byte 
 XOR key which indicates that the threat actor has changed its code base after the release of that post.
-Hopefully can this post shed some light on the current way the threat Retefe stores its payload.
+This post can hopefully shed some light on the current way the threat Retefe stores its payload.
 
 Looking at the mapped binary image by IDA shows a large amount of unexplored data that is in the `.data` segment.
 
