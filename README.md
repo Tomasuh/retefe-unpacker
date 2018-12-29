@@ -10,7 +10,7 @@ categories:
 
 Cross post of [http://tomasuh.github.io/2018/12/28/retefe-unpack.html](http://tomasuh.github.io/2018/12/28/retefe-unpack.html).
 
-This is a writeup on how to implement an unpacker for current version (at the time of publication) of the banking malware Retefe.
+This is a writeup on how to implement an unpacker for current versions (at the time of publication) of the banking malware Retefe.
 
 Resources about the threat:
 * [Retefe banking Trojan leverages EternalBlue exploit in Swiss campaigns](https://www.proofpoint.com/us/threat-insight/post/retefe-banking-trojan-leverages-eternalblue-exploit-swiss-campaigns)
