@@ -45,7 +45,7 @@ Later on the decode operation is performed:
 
 <div style="text-align:center"><img src="readme_images/decoder-decode.png" width="60%" height="60%"></div>
 
-That the data actually becomes decoded can be verified by a debugger, watching the memory of the buffer after the decoder function 
+That the data actually becomes decoded can be verified with a debugger, watching the memory of the buffer after the decoder function 
 has ran:
 
 ![](readme_images/dbg.png)
