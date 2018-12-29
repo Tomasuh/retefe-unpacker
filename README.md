@@ -25,30 +25,30 @@ Hopefully can this post shed some light on the current way the threat Retefe sto
 
 Looking at the mapped binary image by IDA shows a large amount of unexplored data that is in the `.data` segment.
 
-<div style="text-align:center"><img src="/images/retefe/code-explored.png"></div>
+<div style="text-align:center"><img src="readme_images/code-explored.png"></div>
 
 Browsing the `.data` segment with Binary Ninja shows a large segment of data whose top is referenced in a 
 copy instruction:
 
-<div style="text-align:center"><img src="/images/retefe/copy-instruction.png" width="75%" height="75%"></div>
+<div style="text-align:center"><img src="readme_images/copy-instruction.png" width="75%" height="75%"></div>
 
 The copy instruction is part of a function that passes the address of this copied data as an argument to a decoding function together with the length of the buffer:
 
-<div style="text-align:center"><img src="/images/retefe/decoder-setup.png" width="75%" height="75%"></div>
+<div style="text-align:center"><img src="readme_images/decoder-setup.png" width="75%" height="75%"></div>
 
 The `decoder` function passes the `buffer length` and another `int` to a function that takes `buffer length` to the power of that `int.
 Then a a shift and subtraction is performed. The result is the XOR key that is used to decode the buffer.
 
-<div style="text-align:center"><img src="/images/retefe/xor-key.png" width="75%" height="75%"></div>
+<div style="text-align:center"><img src="readme_images/xor-key.png" width="75%" height="75%"></div>
 
 Later on the decode operation is performed:
 
-<div style="text-align:center"><img src="/images/retefe/decoder-decode.png" width="60%" height="60%"></div>
+<div style="text-align:center"><img src="readme_images/decoder-decode.png" width="60%" height="60%"></div>
 
 That the data actually becomes decoded can be verified by a debugger, watching the memory of the buffer after the decoder function 
 has ran:
 
-![](/images/retefe/dbg.png)
+![](readme_images/dbg.png)
 
 With the above research its possible to write an unpacker.
 
@@ -71,4 +71,4 @@ Recent hashes that it has been confirmed to work on:
 
 Example run:
 
-![](/images/retefe/example-run.png)
+![](readme_images/example-run.png)
