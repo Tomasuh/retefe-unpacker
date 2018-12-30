@@ -1,14 +1,12 @@
 ---
 layout: post
-title: "Retefe static unpacker"
+title: "Retefe unpacker"
 date: 2018-12-28
 comments: true
 categories:
 ---
 
 # Retefe unpacker
-
-Cross post of [http://tomasuh.github.io/2018/12/28/retefe-unpack.html](http://tomasuh.github.io/2018/12/28/retefe-unpack.html).
 
 This is a writeup on how to implement an unpacker for current versions (at the time of publication) of the banking malware Retefe.
 
@@ -37,7 +35,7 @@ The copy instruction is part of a function that passes the address of this copie
 <div style="text-align:center"><img src="readme_images/decoder-setup.png" width="75%" height="75%"></div>
 
 The `decoder` function passes the `buffer length` and another `int` to a function that takes `buffer length` to the power of that `int`.
-Then a a shift and subtraction is performed. The result is the XOR key that is used to decode the buffer.
+Then a shift and subtraction is performed. The result is the XOR key that is used to decode the buffer.
 
 <div style="text-align:center"><img src="readme_images/xor-key.png" width="75%" height="75%"></div>
 
@@ -54,13 +52,11 @@ With the above research its possible to write an unpacker.
 
 The actions performed by the unpacker:
 * Use yara rules to find buffer location buffer length, number of shifts, subtraction value and power to value of it.
-* Calculate the buffer RVA based as the extracted location is relative to the LEA instruction that references it
+* Calculate the buffer RVA as the extracted location is relative to the LEA instruction that references it
 * Calculate XOR array based on values extracted with the help of the yara rules
 * Extract and decode the script
 
 The sourcecode to do this is available in [this](https://github.com/Tomasuh/retefe_unpacker) github repo.
-
-Screenshots from above is based on the file `1a3f25f4067e50aa113dfd9349fc4bdcf346d2e589ed6b4cebbc0a33e9eea50d`.
 
 Recent hashes that it has been confirmed to work on:
 ```
@@ -72,3 +68,5 @@ Recent hashes that it has been confirmed to work on:
 Example run:
 
 ![](readme_images/example-run.png)
+
+Screenshots in this post are based on the file `1a3f25f4067e50aa113dfd9349fc4bdcf346d2e589ed6b4cebbc0a33e9eea50d`.
